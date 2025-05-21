@@ -13,9 +13,22 @@ public class BookServiceImp implements BookService {
             new Book(3, "Rayuela", "Julio Cortazar"),
             new Book(4, "Oliver Twist", "Charles Dickens")
     );
-
+    @Override
+    public Book getBookById(int id){
+        for(Book b : books)
+        {
+            if (b.getId()==id) {
+                return b;
+            }
+        }
+        return null;
+    }
     @Override
     public List<Book> findAll() {
         return books;
+    }
+    @Override
+    public void addNewBook(Book book){
+        books.add(book);
     }
 }
